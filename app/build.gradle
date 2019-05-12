@@ -1,14 +1,15 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 28
-
+    compileSdkVersion 25
+    buildToolsVersion "28.0.3"
     defaultConfig {
-        applicationId "com.londonappbrewery.destini"
-        minSdkVersion 16
-        targetSdkVersion 28
+        applicationId "com.example.user.thestoryapp"
+        minSdkVersion 23
+        targetSdkVersion 25
         versionCode 1
         versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
@@ -19,6 +20,10 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:28.0.0'
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:25.+'
+    testCompile 'junit:junit:4.12'
 }
